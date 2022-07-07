@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Footy"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+
+    \\Lines 13-21 encompass the baseLabel. The constraints, sizes and text, this cannot be changed by the user
+    <TextView
+        android:id="@+id/baseLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:text="Base"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="@+id/tipPercent"
+        app:layout_constraintTop_toTopOf="parent" />
+    \\ Lines 23-31 encompass the tipPercent, this is a value that will change to represent the value that the user has input through our seekbar.
+    <TextView
+        android:id="@+id/tipPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="@+id/peopleCount"
+        app:layout_constraintTop_toBottomOf="@+id/baseLabel"
+        tools:text="24%" />
+    \\ Lines 34-41 encompass the totalLabel, this is a fixed label that is there to help the user identify which textview is the total.
+    <TextView
+        android:id="@+id/totalLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Total"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="@+id/tvTipLabel"
+        app:layout_constraintTop_toBottomOf="@+id/peopleCount" />
+    \\Lines 43-51 encompass the tvTipLabel which is a fixed label that does not change but identifies which textview reflects the tip.
+    <TextView
+        android:id="@+id/tvTipLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Tip"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toStartOf="@+id/yourTotal"
+        app:layout_constraintTop_toBottomOf="@+id/totalLabel" />
+    \\ Lines 53-66 ecompass the baseAmount, which is an edittext in which the user inputs their base dinner amount.
+    <EditText
+        android:id="@+id/baseAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:ems="8"
+        android:hint="Bill Amount"
+        android:inputType="numberDecimal"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/baseLabel"
+        app:layout_constraintStart_toEndOf="@+id/baseLabel"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+    \\ Lines 68-76 encompass the tipFactor seekBar where the user can input the desired tip amount.
+    <SeekBar
+        android:id="@+id/tipFactor"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:max="30"
+        app:layout_constraintBottom_toBottomOf="@+id/tipPercent"
+        app:layout_constraintStart_toStartOf="@+id/baseAmount"
+        app:layout_constraintTop_toTopOf="@+id/tipPercent" />
+    \\ Lines 78-86 encompass the totalPrice label that changes based upon the baseAmount.
+    <TextView
+        android:id="@+id/totalPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="@+id/totalLabel"
+        app:layout_constraintStart_toEndOf="@+id/totalLabel"
+        tools:text="19.96" />
+    \\ Lines 88-97 encompass the tipPrice label that changes based upon the tipFactor and baseAmount
+    <TextView
+        android:id="@+id/tipPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toEndOf="@+id/tvTipLabel"
+        app:layout_constraintTop_toBottomOf="@+id/totalPrice"
+        tools:text="103.11" />
+    \\ Lines 99-109 encompass the footer which is just a label to show that I made this :D
+    <TextView
+        android:id="@+id/footer"
+        android:layout_width="248dp"
+        android:layout_height="15dp"
+        android:layout_marginBottom="32dp"
+        android:text="Made in Washington by Jasdeep Singh"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    \\ Lines 111-118 encompass the peopleCount label, this label does not change and is for the sole purpose of displaying "people"
+    <TextView
+        android:id="@+id/peopleCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="People"
+        app:layout_constraintEnd_toEndOf="@+id/totalLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tipPercent" />
+    \\ Lines 120-130 encompass the yourTotal which like the peopleCount label is just for the purpose of displaying "Your Total"
+    <TextView
+        android:id="@+id/yourTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="32dp"
+        android:text="Your Total"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/finalTotalDisplay"
+        app:layout_constraintTop_toBottomOf="@+id/tvTipLabel" />
+    \\ Lines 132-142 encompass the finalTotalDisplay which changes based off the tipFactor, baseAmount and peopleCounter.
+    <TextView
+        android:id="@+id/finalTotalDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="95dp"
+        android:hint="Your Total"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tipPrice" />
+    \\Lines 144-158 encompass the peopleCounter which take in an integer from the user to denote the amount of people on the bill.
+    <EditText
+        android:id="@+id/peopleCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="32dp"
+        android:ems="10"
+        android:hint="People on Bill"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="1"
+        app:layout_constraintBottom_toTopOf="@+id/totalPrice"
+        app:layout_constraintStart_toEndOf="@+id/peopleCount"
+        app:layout_constraintTop_toBottomOf="@+id/tipFactor" />
+    \\ Lines 160-168 encompass the tipDescription which changes based off of the tipFactor seekBar.
+    <TextView
+        android:id="@+id/tipDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/tipFactor"
+        app:layout_constraintStart_toStartOf="@+id/tipFactor"
+        app:layout_constraintTop_toBottomOf="@+id/tipFactor"
+        tools:text="Acceptability" />
+</androidx.constraintlayout.widget.ConstraintLayout>
